@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Platinum — GTA VI Trophy Guide &amp; Tracker</title>
+<meta name="description" content="Offline guide and tracker for all 55 Grand Theft Auto VI PlayStation 5 trophies: official names, descriptions and grades, a roadmap to the platinum, missable flags, and a cited guide for every trophy.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <p class="kicker">Grand Theft Auto VI &middot; PlayStation 5 &middot; offline guide</p>
+    <h1>Leonida Platinum</h1>
+    <p class="sub">All 55 trophies &mdash; 1 platinum, 2 gold, 6 silver, 46 bronze &middot; 28 hidden on PSN until earned &middot; 0 online trophies &middot; about 200 hours, difficulty 4/10 (PowerPyx)</p>
+  </div>
+  <div class="progress" id="progressBox" aria-live="polite">
+    <p class="big"><span id="earnedCount">0</span><span class="of"> / 55 earned</span></p>
+    <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="55" aria-valuenow="0" id="progressBar"><span id="progressFill"></span></div>
+    <p class="pct" id="progressPct">0% &mdash; the platinum is 54 trophies away</p>
+    <p class="platinum" id="platinumNote" hidden>&#127942; Platinum earned &mdash; you are a Leonida Legend.</p>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="Views">
+  <button type="button" data-view="checklist" class="active" id="tab-checklist">Checklist</button>
+  <button type="button" data-view="roadmap" id="tab-roadmap">Roadmap to Platinum</button>
+  <button type="button" data-view="missables" id="tab-missables">Missables <span class="badge" id="missableCount">1</span></button>
+</nav>
+
+<section class="toolbar" id="toolbar">
+  <label class="search">Search <input id="search" type="search" placeholder="Trophy, mission or keyword&hellip;" autocomplete="off"></label>
+  <label>Kind
+    <select id="kindFilter">
+      <option value="all">All kinds</option>
+      <option value="story">Story</option>
+      <option value="missable">Missable</option>
+      <option value="collectibles">Collectibles</option>
+      <option value="activities">Activities</option>
+      <option value="completion">100% completion</option>
+      <option value="online">Online</option>
+    </select>
+  </label>
+  <label>Grade
+    <select id="gradeFilter">
+      <option value="all">All grades</option>
+      <option value="platinum">Platinum</option>
+      <option value="gold">Gold</option>
+      <option value="silver">Silver</option>
+      <option value="bronze">Bronze</option>
+    </select>
+  </label>
+  <label class="toggle"><input type="checkbox" id="spoilerToggle"> Hide story spoilers until earned</label>
+  <label class="toggle"><input type="checkbox" id="hideEarned"> Hide earned</label>
+  <span class="spacer"></span>
+  <button type="button" id="exportBtn">Export progress</button>
+  <label class="importBtn">Import progress <input id="importFile" type="file" accept="application/json,.json"></label>
+  <button type="button" id="resetBtn" title="Clear all ticks">Reset</button>
+</section>
+<p class="status" id="status" role="status"></p>
+
+<main class="layout">
+  <section class="listPane" aria-label="Trophy list">
+    <p class="listMeta" id="listMeta"></p>
+    <ul class="trophyList" id="trophyList"></ul>
+    <p class="empty" id="emptyNote" hidden>No trophies match these filters. The Online filter is empty on purpose: PowerPyx lists 0 online trophies for GTA VI &mdash; every trophy is single-player.</p>
+  </section>
+
+  <aside class="detailPane" id="detailPane" aria-label="Trophy guide"></aside>
+</main>
+
+<section class="viewPage" id="roadmapPage" hidden>
+  <h2>Roadmap to the platinum</h2>
+  <p class="lede">Six stages, in the order to play them. Built from the official trophy descriptions: story chapters and missions first, then stranger strands, then activities, collectibles, crime and money, and the 100% cleanup last. One playthrough is enough (PowerPyx); there is no mission replay and no New Game Plus, so keep a manual save at the start of every chapter and one before the final mission.</p>
+  <ol class="roadmap" id="roadmapList"></ol>
+  <p class="fine">Cheats off for the whole run: PowerPyx reports turning on a cheat disables trophies (and saving). Difficulty does not matter &mdash; there are no difficulty settings and no difficulty trophies.</p>
+</section>
+
+<section class="viewPage" id="missablesPage" hidden>
+  <h2>Missable trophies</h2>
+  <p class="lede">PowerPyx and GTABase both flag exactly <strong>one</strong> potentially missable trophy. Every other trophy is earned by playing the story, finishing a strand, or grinding a repeatable activity &mdash; nothing else in the official descriptions ties a trophy to a one-time moment.</p>
+  <div id="missableList"></div>
+  <h3>Why nothing else is flagged</h3>
+  <ul class="why">
+    <li><strong>Story chapters and missions</strong> (Chapters 1&ndash;4, the final mission, Gone Fishing, Breakfast Run, The Cartel Heist, Child&rsquo;s Play, Headliners, VCIA Takedown, Operation Savage Glory): automatic on completion, unmissable by definition.</li>
+    <li><strong>Stranger strands</strong> (Andy, Kenton, Billy, Randy, Tyrone, plus 3 more): some optional missions disappear as the story advances, but PowerPyx counts 200&ndash;300+ optional missions, far more than the 8 strands need.</li>
+    <li><strong>Activities, collectibles and crime</strong> (250 stunts, 100 WAiNK spots, card sets, vaults, trucks): all repeatable in free-roam after the story, and nothing toward 100% completion is missable.</li>
+    <li><strong>Choices</strong> (Actions Speak Louder): the Criminal Profile builds over 500 reported actions and can be worked in either direction; only the permanent &ldquo;Irredeemable&rdquo; profile is a trap, and it changes police behaviour, not trophy access.</li>
+  </ul>
+  <p class="fine">Sources: PowerPyx GTA 6 Trophy Guide &amp; Roadmap (the one missable, optional-mission counts); GTABase via eGamers (also flags Positive Mental Attitude as the only possibly missable trophy).</p>
+</section>
+
+<footer>
+  <p>Names, descriptions and grades are PlayStation&rsquo;s official list, as listed by Exophase and PSNProfiles (the two agree on all 55). Every guide is written in this entry&rsquo;s own words and cites its sources beside it; where no published guide pins down a step, the guide says so instead of inventing it. No Rockstar logo, artwork or game screenshots are used. This guide works fully offline &mdash; it loads only its own files and makes no network request.</p>
+  <p class="fine">Sources: Exophase &mdash; exophase.com/game/grand-theft-auto-vi-psn/trophies/ &middot; PSNProfiles &mdash; psnprofiles.com/trophies/43531-grand-theft-auto-vi &middot; PowerPyx &mdash; powerpyx.com/gta-6-grand-theft-auto-vi-trophy-guide-roadmap/ &middot; OutputLag &mdash; outputlag.com/guides/gta-6-trophy-list/ &middot; eGamers &mdash; egamers.io/gta-6-trophy-list-all-55-trophies-and-achievements-plus-the-hardest-ones/ &middot; ComingSoon &mdash; comingsoon.net/games/news/2226420-gta-6-200-hour-platinum-trophy-grind</p>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

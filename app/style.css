@@ -1,0 +1,155 @@
+/* Leonida Platinum — a dusk-over-Vice-City look of our own: deep violet-navy,
+   warm sand text, one coral accent. No game art, no logos; colour and type only. */
+:root {
+  --bg: #14101f;
+  --bg2: #1d1730;
+  --panel: #221b38;
+  --panel2: #2a2144;
+  --line: #3a2f5c;
+  --text: #f2ead9;
+  --muted: #b9aec9;
+  --accent: #ff7a59;
+  --accent2: #ffb35c;
+  --good: #7ddba3;
+  --warn: #ffd166;
+  --platinum: #d8e1ea;
+  --gold: #e8c15a;
+  --silver: #c3c9cf;
+  --bronze: #c98b5e;
+  --radius: 10px;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 15px/1.5 "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+}
+h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; line-height: 1.2; margin: 0; }
+a { color: var(--accent2); }
+button, select, input { font: inherit; color: inherit; }
+button { cursor: pointer; }
+
+.top {
+  display: flex; justify-content: space-between; gap: 24px; align-items: flex-end;
+  padding: 20px 28px 14px;
+  background: linear-gradient(120deg, #2a1740 0%, #14101f 55%, #3a1c2e 100%);
+  border-bottom: 2px solid var(--accent);
+}
+.kicker { margin: 0 0 4px; color: var(--accent2); text-transform: uppercase; letter-spacing: 0.12em; font-size: 11px; font-weight: 700; }
+.top h1 { font-size: 40px; letter-spacing: 0.01em; }
+.sub { margin: 6px 0 0; color: var(--muted); font-size: 13px; max-width: 640px; }
+.progress { min-width: 280px; text-align: right; }
+.progress .big { margin: 0; font-size: 28px; font-weight: 700; }
+.progress .big .of { font-size: 15px; color: var(--muted); font-weight: 400; }
+.bar { height: 10px; background: var(--panel); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; margin: 6px 0; }
+.bar span { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--accent), var(--accent2)); }
+.pct { margin: 0; color: var(--muted); font-size: 13px; }
+.platinum { margin: 6px 0 0; color: var(--good); font-weight: 700; }
+
+.tabs { display: flex; gap: 8px; padding: 12px 28px 0; }
+.tabs button {
+  background: var(--panel); border: 1px solid var(--line); border-radius: 8px 8px 0 0;
+  padding: 9px 18px; color: var(--muted); font-weight: 600;
+}
+.tabs button.active { background: var(--panel2); color: var(--text); border-bottom-color: var(--panel2); }
+.badge { background: var(--accent); color: #1d1020; border-radius: 10px; padding: 1px 8px; font-size: 12px; font-weight: 800; }
+
+.toolbar {
+  display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+  padding: 12px 28px; background: var(--panel2); border-bottom: 1px solid var(--line);
+}
+.toolbar label { font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 6px; }
+.toolbar input[type="search"] { width: 220px; }
+.toolbar select, .toolbar input[type="search"] {
+  background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 6px 8px; color: var(--text);
+}
+.toolbar .spacer { flex: 1; }
+.toolbar button, .importBtn {
+  background: var(--accent); color: #1d1020; border: none; border-radius: 6px;
+  padding: 7px 12px; font-weight: 700; font-size: 13px;
+}
+.toolbar button:hover, .importBtn:hover { background: var(--accent2); }
+#resetBtn { background: transparent; border: 1px solid var(--line); color: var(--muted); }
+.importBtn input { display: none; }
+.status { margin: 0; padding: 6px 28px 0; min-height: 22px; color: var(--warn); font-size: 13px; }
+.status:empty { display: none; }
+
+.layout { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 18px; padding: 12px 28px 20px; align-items: start; }
+.listMeta { margin: 0 0 8px; color: var(--muted); font-size: 13px; }
+.trophyList { list-style: none; margin: 0; padding: 0; }
+.trophyList li {
+  display: grid; grid-template-columns: 26px 1fr auto; gap: 10px; align-items: start;
+  background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 10px 12px; margin-bottom: 8px; cursor: pointer;
+}
+.trophyList li:hover { border-color: var(--accent); }
+.trophyList li.selected { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.trophyList li.earned { opacity: 0.78; }
+.trophyList input { width: 18px; height: 18px; margin-top: 3px; accent-color: var(--accent); cursor: pointer; }
+.tName { font-weight: 700; font-size: 14.5px; }
+.tName .hiddenTag { color: var(--warn); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-left: 6px; }
+.tDesc { color: var(--muted); font-size: 13px; margin-top: 1px; }
+.tMeta { margin-top: 4px; font-size: 12px; color: var(--muted); display: flex; gap: 8px; flex-wrap: wrap; }
+.missFlag { color: #1d1020; background: var(--warn); border-radius: 4px; padding: 0 6px; font-weight: 800; }
+.kindTag { border: 1px solid var(--line); border-radius: 4px; padding: 0 6px; }
+.gradeDot { display: inline-block; width: 11px; height: 11px; border-radius: 50%; margin-right: 4px; vertical-align: -1px; }
+.grade-platinum .gradeDot { background: var(--platinum); }
+.grade-gold .gradeDot { background: var(--gold); }
+.grade-silver .gradeDot { background: var(--silver); }
+.grade-bronze .gradeDot { background: var(--bronze); }
+.gradeLabel { text-transform: capitalize; font-weight: 700; color: var(--text); }
+.empty { color: var(--muted); background: var(--panel); border: 1px dashed var(--line); border-radius: var(--radius); padding: 16px; }
+
+.detailPane {
+  position: sticky; top: 12px;
+  background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 18px;
+}
+.detailPane h2 { font-size: 22px; margin-bottom: 2px; }
+.detailPane .offName { color: var(--muted); font-size: 13px; margin: 0 0 10px; }
+.detailPane .offDesc { border-left: 3px solid var(--accent); padding-left: 10px; color: var(--text); margin: 0 0 12px; font-style: italic; }
+.detailPane h3 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent2); margin: 14px 0 6px; font-family: inherit; }
+.detailPane p { margin: 0 0 8px; font-size: 14px; }
+.detailPane .guideText { font-size: 14.5px; }
+.sources { font-size: 12.5px; color: var(--muted); }
+.sources li { margin-bottom: 3px; overflow-wrap: anywhere; }
+.detailPane .earnBtn {
+  width: 100%; margin-top: 12px; padding: 10px; border-radius: 8px; border: none;
+  background: var(--accent); color: #1d1020; font-weight: 800; font-size: 14px;
+}
+.detailPane .earnBtn.earned { background: var(--good); }
+.spoilerBox { color: var(--muted); font-style: italic; }
+
+.viewPage { padding: 8px 28px 24px; max-width: 980px; }
+.viewPage h2 { font-size: 28px; margin-bottom: 8px; }
+.viewPage .lede { color: var(--muted); font-size: 15px; }
+.roadmap { list-style: none; padding: 0; counter-reset: stage; }
+.roadmap li {
+  counter-increment: stage; background: var(--panel); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 14px 16px 14px 56px; margin-bottom: 10px; position: relative;
+}
+.roadmap li::before {
+  content: counter(stage); position: absolute; left: 14px; top: 12px;
+  width: 28px; height: 28px; border-radius: 50%; background: var(--accent); color: #1d1020;
+  font-weight: 800; text-align: center; line-height: 28px;
+}
+.roadmap h3 { font-size: 17px; font-family: Georgia, serif; margin-bottom: 4px; }
+.roadmap p { margin: 0; color: var(--muted); }
+.roadmap .stageCount { color: var(--accent2); font-size: 13px; font-weight: 700; }
+.missCard { background: var(--panel); border: 1px solid var(--warn); border-radius: var(--radius); padding: 16px; margin-bottom: 14px; }
+.missCard h3 { font-size: 19px; margin-bottom: 4px; }
+.why { color: var(--muted); }
+.why li { margin-bottom: 8px; }
+.why strong { color: var(--text); }
+.fine { color: var(--muted); font-size: 12.5px; }
+
+footer { padding: 18px 28px 28px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+footer p { margin: 0 0 8px; overflow-wrap: anywhere; }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .detailPane { position: static; }
+  .top { flex-direction: column; align-items: flex-start; }
+  .progress { text-align: left; }
+}
